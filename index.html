@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Modding Hub - Модинг Unity и Unreal Engine</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            background-color: var(--dark-color);
+            padding: 0.5rem 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .engines {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .engine-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            width: 48%;
+            padding: 20px;
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+        
+        .engine-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .engine-card.unity {
+            border-top: 4px solid #3498db;
+        }
+        
+        .engine-card.unreal {
+            border-top: 4px solid #e74c3c;
+        }
+        
+        .engine-card h3 {
+            margin-top: 0;
+            color: var(--dark-color);
+        }
+        
+        .engine-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .tutorials, .resources {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .tutorial-card {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        
+        .tutorial-image {
+            width: 200px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 20px;
+        }
+        
+        .tool-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-right: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        @media (max-width: 768px) {
+            .engines {
+                flex-direction: column;
+            }
+            
+            .engine-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .tutorial-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .tutorial-image {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Game Modding Hub</h1>
+        <p>Ресурсы и руководства по модингу игр на Unity и Unreal Engine</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#unity">Unity</a></li>
+            <li><a href="#unreal">Unreal Engine</a></li>
+            <li><a href="#tutorials">Туториалы</a></li>
+            <li><a href="#tools">Инструменты</a></li>
+            <li><a href="#community">Сообщество</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="home" class="hero">
+            <h2>Добро пожаловать в мир модинга игр!</h2>
+            <p>Изучайте, создавайте и делитесь модами для ваших любимых игр</p>
+            <a href="#tutorials" class="btn">Начать обучение</a>
+        </section>
+        
+        <section class="engines">
+            <article class="engine-card unity">
+                <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Unity Engine" class="engine-image">
+                <h3>Unity Модинг</h3>
+                <p>Узнайте, как модифицировать игры на движке Unity. Работа с Asset Bundles, декомпиляция, инжектинг кода и многое другое.</p>
+                <ul>
+                    <li>Работа с DLL-файлами</li>
+                    <li>Модификация Asset Bundles</li>
+                    <li>Создание пользовательских интерфейсов</li>
+                    <li>Инструменты для анализа игр</li>
+                </ul>
+                <a href="#unity" class="btn">Подробнее</a>
+            </article>
+            
+            <article class="engine-card unreal">
+                <img src="https://images.unsplash.com/photo-1633613286991-611fe299c4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Unreal Engine" class="engine-image">
+                <h3>Unreal Engine Модинг</h3>
+                <p>Руководства по модингу игр на Unreal Engine 4 и 5. Работа с .pak файлами, модификация Blueprints и создание модов.</p>
+                <ul>
+                    <li>Распаковка и модификация .pak файлов</li>
+                    <li>Работа с Blueprints</li>
+                    <li>Создание собственных модов</li>
+                    <li>Инструменты для UE4/UE5</li>
+                </ul>
+                <a href="#unreal" class="btn">Подробнее</a>
+            </article>
+        </section>
+        
+        <section id="tutorials" class="tutorials">
+            <h2>Последние туториалы</h2>
+            <div class="tutorial-list">
+                <article class="tutorial-card">
+                    <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Unity декомпиляция" class="tutorial-image">
+                    <div>
+                        <h3>Как декомпилировать Unity-игру с помощью ILSpy</h3>
+                        <p>Пошаговое руководство по анализу кода Unity-игр с помощью ILSpy и других инструментов.</p>
+                        <a href="#" class="btn">Читать</a>
+                    </div>
+                </article>
+                
+                <article class="tutorial-card">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Unreal Engine мод" class="tutorial-image">
+                    <div>
+                        <h3>Создание простого мода для Unreal Engine 5</h3>
+                        <p>Основы создания модов для игр на UE5, начиная с распаковки и заканчивая сборкой.</p>
+                        <a href="#" class="btn">Читать</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <section id="tools" class="resources">
+            <h2>Популярные инструменты</h2>
+            <div class="tools-list">
+                <article>
+                    <h3>Unity Tools</h3>
+                    <div class="tool-card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/6132/6132222.png" alt="dnSpy" class="tool-icon">
+                        <div>
+                            <h4>dnSpy</h4>
+                            <p>Мощный декомпилятор .NET для анализа и модификации Unity-игр</p>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1087/1087815.png" alt="AssetStudio" class="tool-icon">
+                        <div>
+                            <h4>AssetStudio</h4>
+                            <p>Просмотр и извлечение ресурсов из Asset Bundles</p>
+                        </div>
+                    </div>
+                </article>
+                
+                <article>
+                    <h3>Unreal Engine Tools</h3>
+                    <div class="tool-card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2779/2779775.png" alt="FModel" class="tool-icon">
+                        <div>
+                            <h4>FModel</h4>
+                            <p>Просмотр и экспорт ресурсов из .pak файлов UE4/UE5</p>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2779/2779775.png" alt="UE4SS" class="tool-icon">
+                        <div>
+                            <h4>UE4SS</h4>
+                            <p>Скриптинг и модификация логики Unreal Engine игр</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Game Modding Hub. Все права защищены.</p>
+        <p>Сайт создан энтузиастами для энтузиастов</p>
+    </footer>
+</body>
+</html>
